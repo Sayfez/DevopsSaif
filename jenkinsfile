@@ -20,7 +20,7 @@ pipeline {
                 sh 'mvn test'
             }
         }
-//hello
+
      /*   stage('Déploiement') {
             steps {
                 // Déployer votre application sur un serveur ou une plateforme spécifique
