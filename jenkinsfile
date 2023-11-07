@@ -8,7 +8,7 @@ pipeline {
         }
         stage('git') {
             steps {
-                 Cloner le référentiel depuis votre système de contrôle de version
+                // Cloner le référentiel depuis votre système de contrôle de version
                   git branch: 'main', url : 'https://github.com/Guesmiazer/Devops.git'
                   }
         }
@@ -18,9 +18,6 @@ pipeline {
                 sh 'mvn clean package'
             }
         }
-
-               
-            }
         stage('Tests') {
             steps {
                 // Exécuter vos tests unitaires ou tests d'intégration
@@ -43,5 +40,4 @@ pipeline {
       //   }
     }
 }
-
 
