@@ -18,6 +18,15 @@ pipeline {
                 sh 'mvn clean package'
             }
         }
+stage('Nexus') {
+                           
+            steps {
+             
+              sh 'mvn deploy'
+           
+            }
+               
+            }
         stage('Tests') {
             steps {
                 // Exécuter vos tests unitaires ou tests d'intégration
