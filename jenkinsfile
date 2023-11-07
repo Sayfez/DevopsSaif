@@ -6,12 +6,12 @@ pipeline {
             steps {
                 checkout scm }
         }
-        stage('git') {
-            steps {
+       // stage('git') {
+         //   steps {
                 // Cloner le référentiel depuis votre système de contrôle de version
-                  git branch: 'main', url : 'https://github.com/Guesmiazer/Devops.git'
-                  }
-        }
+               //   git branch: 'main', url : 'https://github.com/Guesmiazer/Devops.git'
+                 // }
+        //}
         stage('Construction') {
             steps {
                 // Exécuter votre processus de construction (par exemple, Maven, Gradle, etc.)
