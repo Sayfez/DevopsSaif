@@ -2,16 +2,20 @@ pipeline {
     agent any
 
     stages {
+        stage('checkout'){
+            steps {
+                checkout scm }
+        }
         stage('git') {
             steps {
                 // Cloner le référentiel depuis votre système de contrôle de version
-                  git branch: 'main', url : 'https://github.com/Guesmiazer/Devops.git'
+                  git branch: 'main', url : 'https://github.com/Sayfez/TpDevops.git'
                   }
         }
         stage('Construction') {
             steps {
                 // Exécuter votre processus de construction (par exemple, Maven, Gradle, etc.)
-                sh 'mvn clean install'
+                sh 'mvn clean package'
             }
         }
         stage('Tests') {
@@ -20,12 +24,21 @@ pipeline {
                 sh 'mvn test'
             }
         }
-
-     /*   stage('Déploiement') {
-            steps {
-                // Déployer votre application sur un serveur ou une plateforme spécifique
-                sh 'mvn deploy'
-            }
-        }*/
+       stage('sonarqube') {
+           steps {
+           withSonarQubeEnv('sonarserver') {
+                                      sh 'mvn sonar:sonar -Dsonar.java.binaries=target/classes'
+           }
+           }
+       }
+        //
+      // stage('Déploiement') {
+      //       steps {
+      //           // Déployer votre application sur un serveur ou une plateforme spécifique
+      //           sh 'mvn deploy'
+      //       }
+      //   }
     }
 }
+
+
