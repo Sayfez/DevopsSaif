@@ -1,2 +1,2 @@
 # Devops
-hello azer xy
+hello azer
