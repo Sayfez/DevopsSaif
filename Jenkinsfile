@@ -55,13 +55,13 @@ pipeline {
            }
            }
        }
-              stage('Nexus') {
+            //   stage('Nexus') {
                            
-            steps {
-              sh 'mvn deploy'
-            }
+            // steps {
+            //   sh 'mvn deploy'
+            // }
                
-            }
+            // }
         //
       // stage('Déploiement') {
       //       steps {
